@@ -19,7 +19,7 @@ html {
 
 body {
   font-family: 'Delicious Handrawn', cursive;
-  color: #eee;
+  color: #eeeeee;
   background-color: #43344d;
   /* background-color: #60b347; */
 }
@@ -149,7 +149,7 @@ h1 {
 }
 
 .end-menu {
-  width: 50%;
+  width: 30%;
   height: 40%;
   top: 50%;
   left: 50%;
@@ -177,5 +177,21 @@ h1 {
   position: absolute;
   transform: translate(-50%, -50%);
   font-size: 300%;
+  visibility: hidden;
+}
+.left-confetti {
+  top: 25%;
+  left: 0%;
+  width: 12.5rem;
+  position: absolute;
+  visibility: hidden;
+}
+.right-confetti {
+  top: 25%;
+  left: auto;
+  right: 0%;
+  width: 12.5rem;
+  position: absolute;
+  transform: scale(-1, 1);
   visibility: hidden;
 }
