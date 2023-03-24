@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Delicious+Handrawn&family=Hanalei&family=Rock+Salt&display=swap');
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 80%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Delicious Handrawn', cursive;
+  color: #eee;
+  background-color: #43344d;
+  /* background-color: #60b347; */
+}
+
+/* LAYOUT */
+header {
+  position: relative;
+  height: 35vh;
+  border-bottom: 7px solid #eee;
+}
+
+main {
+  height: 65vh;
+  color: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.left {
+  width: 60rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.right {
+  width: 40rem;
+  font-size: 2rem;
+}
+
+/* ELEMENTS STYLE */
+h1 {
+  font-size: 4rem;
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  top: 52%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.guess-the-number {
+  text-decoration: underline dotted;
+  text-underline-offset: 15%;
+}
+
+.number {
+  background: #eee;
+  color: #333;
+  font-size: 600%;
+  width: 15rem;
+  padding: 3rem 0rem;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+}
+
+.between {
+  font-size: 250%;
+  position: absolute;
+  top: 2.5%;
+  right: 2.5%;
+  text-decoration: underline;
+  text-underline-offset: 10%;
+}
+
+.again {
+  position: absolute;
+  top: 7.5%;
+  left: 2.5%;
+}
+
+.guess {
+  background: none;
+  background-color: #eee;
+  border: 4px solid gray;
+  font-family: inherit;
+  color: #222;
+  font-size: 500%;
+  padding: 2.5%;
+  width: 30%;
+  text-align: center;
+  display: block;
+  margin-bottom: 10%;
+}
+
+.btn {
+  border: none;
+  background-color: #eee;
+  color: #222;
+  font-size: 300%;
+  font-family: inherit;
+  padding: 2% 4%;
+  cursor: pointer;
+  border-radius: 5%;
+}
+
+.btn:hover {
+  background-color: #ccc;
+}
+
+.message {
+  font-size: 200%;
+  margin-bottom: 20%;
+  height: auto;
+}
+
+.label-score {
+  font-size: 175%;
+  margin-bottom: 2.5%;
+}
+
+.label-highscore {
+  font-size: 175%;
+}
+.curtain {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.39);
+  position: absolute;
+  z-index: 10;
+  top: 0%;
+  left: 0%;
+  visibility: hidden;
+}
+
+.end-menu {
+  width: 50%;
+  height: 40%;
+  top: 50%;
+  left: 50%;
+  background-color: #04bb7e;
+  position: absolute;
+  border-radius: 14%;
+  transform: translate(-50%, -50%);
+}
+.end-menu .again {
+  top: 75%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+.end-menu .place-holder {
+  top: 30%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  font-size: 300%;
+}
+.end-menu .place-holder-score {
+  top: 45%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  font-size: 300%;
+  visibility: hidden;
+}
