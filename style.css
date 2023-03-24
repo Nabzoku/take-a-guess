@@ -44,6 +44,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-right: 5%;
 }
 
 .right {
@@ -61,6 +62,7 @@ h1 {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
 .guess-the-number {
   text-decoration: underline dotted;
   text-underline-offset: 15%;
@@ -137,6 +139,8 @@ h1 {
 .label-highscore {
   font-size: 175%;
 }
+
+/* End Menu */
 .curtain {
   width: 100%;
   height: 100%;
@@ -158,20 +162,23 @@ h1 {
   border-radius: 14%;
   transform: translate(-50%, -50%);
 }
+
 .end-menu .again {
   top: 75%;
   left: 50%;
   position: absolute;
   transform: translate(-50%, -50%);
 }
-.end-menu .place-holder {
+
+.place-holder {
   top: 30%;
   left: 50%;
   position: absolute;
   transform: translate(-50%, -50%);
   font-size: 300%;
 }
-.end-menu .place-holder-score {
+
+.place-holder-score {
   top: 45%;
   left: 50%;
   position: absolute;
@@ -179,6 +186,7 @@ h1 {
   font-size: 300%;
   visibility: hidden;
 }
+
 .left-confetti {
   top: 25%;
   left: 0%;
@@ -186,6 +194,7 @@ h1 {
   position: absolute;
   visibility: hidden;
 }
+
 .right-confetti {
   top: 25%;
   left: auto;
@@ -195,3 +204,4 @@ h1 {
   transform: scale(-1, 1);
   visibility: hidden;
 }
+/*End Menu*/
