@@ -1,13 +1,17 @@
 'use strict';
 let theNumber = Math.floor(Math.random() * 20 + 1);
-document.querySelectorAll('.again').forEach((item) => {
-  item.addEventListener('click', function () {
+
+document.querySelectorAll('.again').forEach((button) => {
+  button.addEventListener('click', function () {
     theNumber = Math.floor(Math.random() * 20 + 1);
     document.querySelector('.score').textContent = 20;
     document.querySelector('.message').textContent = 'Take a guess';
     document.body.style.backgroundColor = '#43344d';
     document.querySelector('.curtain').style.visibility = 'hidden';
     document.querySelector('.place-holder-score').style.visibility = 'hidden';
+    document.querySelectorAll('.confetti').forEach((confetti) => {
+      confetti.style.visibility = 'hidden';
+    });
   });
 });
 
@@ -22,8 +26,7 @@ document.querySelector('.check').addEventListener('click', function () {
     document.querySelector('.curtain').style.visibility = 'visible';
   } else if (guessedNumber === theNumber) {
     document.querySelector('.place-holder').textContent = 'You won!';
-    document.querySelector('.end-menu').style.backgroundColor =
-      'rgb(10, 129, 10)';
+    document.querySelector('.end-menu').style.backgroundColor = '#005B09';
     document.querySelector('.curtain').style.visibility = 'visible';
     if (score > highscore) {
       document.querySelector('.highscore').textContent = score;
@@ -32,7 +35,10 @@ document.querySelector('.check').addEventListener('click', function () {
         'visible';
       document.querySelector(
         '.place-holder-score'
-      ).textContent = `🥳   ${score}   🥳`;
+      ).textContent = `🥳 ${score} 🥳`;
+      document.querySelectorAll('.confetti').forEach((confetti) => {
+        confetti.style.visibility = 'visible';
+      });
     }
   } else if (guessedNumber < 1 || guessedNumber > 20) {
     document.querySelector('.message').textContent =
