@@ -32,9 +32,15 @@ const showConfettis = function () {
     confetti.style.visibility = 'visible';
   });
 };
-const showEndMenuScore = function () {
-  document.querySelector('.place-holder-score').style.visibility = 'visible';
+const showPlaceHolder = function () {
   document.querySelector('.place-holder').style.visibility = 'visible';
+};
+const showPlaceHolderScore = function () {
+  document.querySelector('.place-holder-score').style.visibility = 'visible';
+};
+const showEndMenuScore = function () {
+  showPlaceHolder();
+  showPlaceHolderScore();
 };
 const showEndMenu = function () {
   showCurtain();
@@ -48,6 +54,7 @@ const lost = function () {
   document.querySelector('.place-holder').textContent = 'You Lost :/';
   document.querySelector('.end-menu').style.backgroundColor =
     'rgb(241, 75, 75)';
+  showPlaceHolder();
   showCurtain();
 };
 //Losing Function
@@ -94,26 +101,33 @@ document.querySelectorAll('.again').forEach((button) => {
 });
 //Reset Buttons
 
+//Checking the Number
 document.querySelector('.check').addEventListener('click', function () {
   const guessedNumber = Number(document.querySelector('.guess').value);
   const score = Number(document.querySelector('.score').textContent);
   const highscore = Number(document.querySelector('.highscore').textContent);
 
   if (score === 0) {
+    //When score is 0 (Basically when you lose)
     lost();
   } else if (guessedNumber === theNumber) {
+    //When guessing the number right
     won(score);
     if (score > highscore) {
+      //When you score is higher than highscore
       newHighscore(score);
     }
   } else if (guessedNumber < 1 || guessedNumber > 20) {
+    //When the guessed number is out of range
     document.querySelector('.message').textContent =
       '❌The number is out of range';
     scoreMinusOne();
   } else if (guessedNumber < theNumber) {
+    //When the guessed number is lower than the number
     document.querySelector('.message').textContent = '🔻Too low';
     scoreMinusOne();
   } else if (guessedNumber > theNumber) {
+    //When the guessed number is higher than the number
     document.querySelector('.message').textContent = '🔺Too high';
     scoreMinusOne();
   }
