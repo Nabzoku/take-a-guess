@@ -121,7 +121,6 @@ document.querySelector('.check').addEventListener('click', function () {
     //When the guessed number is out of range
     document.querySelector('.message').textContent =
       '❌The number is out of range';
-    scoreMinusOne();
   } else if (guessedNumber < theNumber) {
     //When the guessed number is lower than the number
     document.querySelector('.message').textContent = '🔻Too low';
