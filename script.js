@@ -121,13 +121,10 @@ document.querySelector('.check').addEventListener('click', function () {
     //When the guessed number is out of range
     document.querySelector('.message').textContent =
       '❌The number is out of range';
-  } else if (guessedNumber < theNumber) {
-    //When the guessed number is lower than the number
-    document.querySelector('.message').textContent = '🔻Too low';
-    scoreMinusOne();
-  } else if (guessedNumber > theNumber) {
-    //When the guessed number is higher than the number
-    document.querySelector('.message').textContent = '🔺Too high';
+  } else if (guessedNumber !== theNumber) {
+    //When the guessed number is lower or higher than the number
+    document.querySelector('.message').textContent =
+      guessedNumber < theNumber ? '🔻Too low' : '🔺Too high';
     scoreMinusOne();
   }
 });
