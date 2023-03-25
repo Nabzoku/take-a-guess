@@ -1,20 +1,31 @@
 'use strict';
 //Creating the Number
-let theNumber = Math.floor(Math.random() * 20 + 1);
+const randomNumber = function () {
+  return Math.floor(Math.random() * 20 + 1);
+};
+let theNumber = randomNumber();
 //Creating the Number
+
+//DOM functions
+const visibilitydom = function (elementClass, visibility) {
+  document.querySelector(elementClass).style.visibility = visibility;
+};
+const textdom = function (elementClass, text) {
+  document.querySelector(elementClass).textContent = text;
+};
+//DOM functions
 
 // Hide Functions
 const hideCurtain = function () {
-  document.querySelector('.curtain').style.visibility = 'hidden';
+  visibilitydom('.curtain', 'hidden');
 };
 const hideConfettis = function () {
-  document.querySelectorAll('.confetti').forEach((confetti) => {
-    confetti.style.visibility = 'hidden';
-  });
+  visibilitydom('.left-confetti', 'hidden');
+  visibilitydom('.right-confetti', 'hidden');
 };
 const hideEndMenuScore = function () {
-  document.querySelector('.place-holder-score').style.visibility = 'hidden';
-  document.querySelector('.place-holder').style.visibility = 'hidden';
+  visibilitydom('.place-holder-score', 'hidden');
+  visibilitydom('.place-holder', 'hidden');
 };
 const hideEndMenu = function () {
   hideCurtain();
@@ -25,18 +36,17 @@ const hideEndMenu = function () {
 
 //Show Functions
 const showCurtain = function () {
-  document.querySelector('.curtain').style.visibility = 'visible';
+  visibilitydom('.curtain', 'visible');
 };
 const showConfettis = function () {
-  document.querySelectorAll('.confetti').forEach((confetti) => {
-    confetti.style.visibility = 'visible';
-  });
+  visibilitydom('.left-confetti', 'visible');
+  visibilitydom('.right-confetti', 'visible');
 };
 const showPlaceHolder = function () {
-  document.querySelector('.place-holder').style.visibility = 'visible';
+  visibilitydom('.place-holder', 'visible');
 };
 const showPlaceHolderScore = function () {
-  document.querySelector('.place-holder-score').style.visibility = 'visible';
+  visibilitydom('.place-holder-score', 'visible');
 };
 const showEndMenuScore = function () {
   showPlaceHolder();
@@ -51,7 +61,7 @@ const showEndMenu = function () {
 
 //Losing Function
 const lost = function () {
-  document.querySelector('.place-holder').textContent = 'You Lost :/';
+  textdom('.place-holder', 'You Lost!');
   document.querySelector('.end-menu').style.backgroundColor =
     'rgb(241, 75, 75)';
   showPlaceHolder();
@@ -61,9 +71,9 @@ const lost = function () {
 
 //Winning Function
 const won = function (score) {
-  document.querySelector('.place-holder').textContent = 'You won!';
+  textdom('.place-holder', 'You Won!');
+  textdom('.place-holder-score', `Score: ${score}`);
   document.querySelector('.end-menu').style.backgroundColor = '#005B09';
-  document.querySelector('.place-holder-score').textContent = `Score: ${score}`;
   showCurtain();
   showEndMenuScore();
 };
@@ -71,8 +81,8 @@ const won = function (score) {
 
 //Highscore Function
 const newHighscore = function (score) {
-  document.querySelector('.highscore').textContent = score;
-  document.querySelector('.place-holder').textContent = `New Highscore`;
+  textdom('.highscore', score);
+  textdom('.place-holder', 'New Highscore');
   showEndMenu();
 };
 //Highscore Function
@@ -80,9 +90,9 @@ const newHighscore = function (score) {
 // Reset Function
 const reset = function () {
   hideEndMenu();
-  theNumber = Math.floor(Math.random() * 20 + 1);
-  document.querySelector('.score').textContent = 20;
-  document.querySelector('.message').textContent = 'Take a guess';
+  theNumber = randomNumber();
+  textdom('.score', 20);
+  textdom('.message', 'Take a guess');
   document.body.style.backgroundColor = '#43344d';
 };
 // Reset Function
@@ -119,12 +129,10 @@ document.querySelector('.check').addEventListener('click', function () {
     }
   } else if (guessedNumber < 1 || guessedNumber > 20) {
     //When the guessed number is out of range
-    document.querySelector('.message').textContent =
-      '❌The number is out of range';
+    textdom('.message', '❌The number is out of range');
   } else if (guessedNumber !== theNumber) {
     //When the guessed number is lower or higher than the number
-    document.querySelector('.message').textContent =
-      guessedNumber < theNumber ? '🔻Too low' : '🔺Too high';
+    textdom('.message', guessedNumber < theNumber ? '🔻Too low' : '🔺Too high');
     scoreMinusOne();
   }
 });
